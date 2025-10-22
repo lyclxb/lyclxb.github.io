@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王志成 - 个人简历</title>
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eef5ff',
+                            100: '#d9e8ff',
+                            200: '#bcd7ff',
+                            300: '#8ebeff',
+                            400: '#5599ff',
+                            500: '#3378ff',
+                            600: '#1e5cff',
+                            700: '#1646f0',
+                            800: '#1a3cd8',
+                            900: '#1c36b8',
+                            950: '#162378',
+                        },
+                        secondary: {
+                            50: '#f5f7fa',
+                            100: '#ebeef5',
+                            200: '#d8deeb',
+                            300: '#b9c3d9',
+                            400: '#919fc9',
+                            500: '#6b7fb3',
+                            600: '#556898',
+                            700: '#48577d',
+                            800: '#3e4a68',
+                            900: '#374159',
+                            950: '#202637',
+                        },
+                        dark: {
+                            100: '#d1d5db',
+                            200: '#9ca3af',
+                            300: '#6b7280',
+                            400: '#4b5563',
+                            500: '#374151',
+                            600: '#1f2937',
+                            700: '#111827',
+                            800: '#0f172a',
+                            900: '#0a0f1a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'custom': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'custom-hover': '0 10px 30px rgba(0, 0, 0, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .bg-gradient-blue {
+                background: linear-gradient(135deg, #1e5cff 0%, #1646f0 100%);
+            }
+            .bg-glass {
+                @apply bg-white bg-opacity-80 dark:bg-dark-700 dark:bg-opacity-80 backdrop-blur-md;
+            }
+            .timeline-dot::before {
+                content: '';
+                @apply absolute w-4 h-4 rounded-full bg-primary-500 border-4 border-white dark:border-dark-700 -left-2 top-1/2 transform -translate-y-1/2;
+            }
+            .timeline-line::before {
+                content: '';
+                @apply absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-dark-400;
+            }
+        }
+    </style>
+    
+    <style>
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            @apply bg-gray-100 dark:bg-dark-700;
+        }
+        ::-webkit-scrollbar-thumb {
+            @apply bg-gray-300 dark:bg-dark-400 rounded-full;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            @apply bg-gray-400 dark:bg-dark-300;
+        }
+        
+        /* 平滑滚动动画 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 深色模式过渡 */
+        .dark-transition {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        /* 技能导航栏滚动效果 */
+        .navbar-fixed {
+            @apply fixed top-0 left-0 w-full shadow-md z-50;
+            animation: slideDown 0.5s;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased dark-transition bg-gray-50 dark:bg-dark-800 text-gray-800 dark:text-gray-100">
+    <!-- 背景图案 -->
+    <!-- <div class="fixed-fixed inset-0 z-0 opacity-10 dark:opacity-20 pointer-events-none">
+        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/229f358f03d04d39ace365b587f2f402~tplv-a9rns2rl98-image.image?rcl=20251021155549785BC4F1FFD5F566C5FC&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1763625380&x-signature=K6xmyHBmpB2FBsadkODagID1VYI%3D" 
+             alt="背景" class="w-full h-full object-cover">
+    </div> -->
+
+    <!-- 导航栏 -->
+    <nav id="navbar" class="dark-glass dark-transition sticky top-0 z-40 py-4 px-6 md:px-12">
+        <div class="container mx-auto flex-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary-600 dark:text-primary-400">王志成<span class="text-gray-500 dark:text-gray-400">.简历</span></a>
+            
+            <div class="flex items-center space-x-4">
+                <!-- 深色/浅色模式切换 -->
+                <button id="theme-toggle" class="p-2 rounded-full-full hover:bg-gray-200 dark:hover:bg-dark-600 transition-colors">
+                    <i class="fa fa-moon-o dark:hidden" aria-hidden="true"></i>
+                    <i class="fa fa-sun-o hidden dark:block text-yellow-300" aria-hidden="true"></i>
+                </button>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menu-toggle" class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-dark-600 transition-colors">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+                
+                <!-- 导航链接 -->
+                <div id="nav-links" class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">首页</a>
+                    <a href="#about" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">关于我</a>
+                    <a href="#experience" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">经历</a>
+                    <a href="#skills" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">技能</a>
+                    <a href="#projects" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">项目</a>
+                    <a href="#contact" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">联系我</a>
+                </div>
+                
+                <!-- 下载简历按钮 -->
+                <a href="#" class="hidden md:block bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-full transition-colors shadow-md hover:shadow-lg">
+                    下载简历
+                </a>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden mt-4 py-4 border-t border-gray-200 dark:border-dark-600">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">首页</a>
+                <a href="#about" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">关于我</a>
+                <a href="#experience" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">经历</a>
+                <a href="#skills" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">技能</a>
+                <a href="#projects" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">项目</a>
+                <a href="#contact" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors">联系我</a>
+                <a href="#" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-full transition-colors shadow-md hover:shadow-lg text-center">
+                    下载简历
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页/个人信息 -->
+    <section id="home" class="relative min-h-screen flex items-center py-20 px-6 md:px-12">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- 个人头像 -->
+                <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-white dark:border-dark-700 shadow-xl mb-8 md:mb-0 md:mr-12" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/labis/de37533e1ca80ab74164b1c3f95fd7c3~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1766217358&x-signature=Tg0XqHAi7sjVGOhIXCe4S8TFsTo%3D" 
+                         alt="张明的照片" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- 个人信息 -->
+                <div class="text-center md:text-left" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow">
+                        王志成
+                        <span class="text-primary-600 dark:text-primary-400">/ Wang Zhicheng</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl font-semibold mb-6 text-gray-600 dark:text-gray-300">
+                        电机控制算法工程师
+                    </h2>
+                    <p class="text-lg md:text-xl mb-8 max-w-2xl text-gray-700 dark:text-gray-300">
+                        专注于电机伺服控制开发，拥有2年+的无刷电机/永磁同步电机控制开发经验，
+                        热爱创造,敢于发现。
+                    </p>
+                    
+                    <!-- 联系方式 -->
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
+                        <a href="mailto:zhangming@example.com" class="flex items-center px-4 py-2 bg-white dark:bg-dark-700 rounded-lg shadow-custom hover:shadow-custom-hover transition-all">
+                            <i class="fa fa-envelope-o text-primary-600 dark:text-primary-400 mr-2" aria-hidden="true"></i>
+                            <span>12345@qq.com</span>
+                        </a>
+                        <a href="tel:+8613800138000" class="flex items-center px-4 py-2 bg-white dark:bg-dark-700 rounded-lg shadow-custom hover:shadow-custom-hover transition-all">
+                            <i class="fa fa-phone text-primary-600 dark:text-primary-400 mr-2" aria-hidden="true"></i>
+                            <span>+86 199 8888 8888</span>
+                        </a>
+                    </div>
+                    
+                    <!-- 社交媒体链接 -->
+                    <!-- <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-dark-700 flex items-center justify-center shadow-custom hover:shadow-custom-hover transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20">
+                            <i class="fa fa-github text-gray-800 dark:text-gray-200" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-dark-700 flex items-center justify-center shadow-custom hover:shadow-custom-hover transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20">
+                            <i class="fa fa-linkedin text-blue-600" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-dark-700 flex items-center justify-center shadow-custom hover:shadow-custom-hover transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20">
+                            <i class="fa fa-twitter text-blue-400" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-dark-700 flex items-center justify-center shadow-custom hover:shadow-custom-hover transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20">
+                            <i class="fa fa-codepen text-gray-800 dark:text-gray-200" aria-hidden="true"></i>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- 向下滚动指示器 -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-primary-600 dark:text-primary-400">
+                <i class="fa fa-chevron-down text-2xl" aria-hidden="true"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="py-20 px-6 md:px-12">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">关于我</h2>
+                <div class="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white dark:bg-dark-700 rounded-2xl shadow-custom p-8 md:p-12" data-aos="fade-up" data-aos-delay="200">
+                <p class="text-lg mb-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+                    我是一名充满激情的电机控制开发工程师，致力于创建卓越的用户体验和高性能的伺服控制器应用。
+                    我的专业领域包括电机控制算法框架、单片机应用和界面开发。
+                </p>
+                <p class="text-lg mb-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+                    在过去的2年里，我参与了多个行业的项目开发，包括机器人关节伺服驱动器, 灵巧手电缸驱动器。
+                    我善于跨职能团队紧密合作，确保项目按时高质量交付。
+                </p>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    除了技术技能外，我还注重经验积累,包括伺服整定,振动抑制等技术。
+                    我不断学习新技术和方法，以保持在快速发展的电机控制领域的竞争力。
+                </p>
+                
+                <!-- 个人特质 -->
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fa fa-lightbulb-o text-primary-600 dark:text-primary-400 text-xl" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">问题解决能力</h3>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                善于分析复杂问题并提出创新解决方案，能够快速适应新的技术挑战。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fa fa-users text-primary-600 dark:text-primary-400 text-xl" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">团队协作</h3>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                具备良好的沟通能力，能够与硬件开发、嵌入式驱动和测试部门进行有效协作。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fa fa-line-chart text-primary-600 dark:text-primary-400 text-xl" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">持续学习</h3>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                积极跟踪FOC技术发展趋势，不断学习新技术和方法，提升专业技能。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fa fa-paint-brush text-primary-600 dark:text-primary-400 text-xl" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">其他能力</h3>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                具备良好的硬件设计，嵌入式驱动，机械设计,软硬件调试等综合能力,能够独立完成单个项目。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育与工作经历 -->
+    <section id="experience" class="py-20 px-6 md:px-12 bg-gray-100 dark:bg-dark-900">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">教育与工作经历</h2>
+                <div class="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- 经历选项卡 -->
+                <div class="flex justify-center mb-12" data-aos="fade-up">
+                    <div class="inline-flex rounded-md shadow-sm" role="group">
+                        <button type="button" id="work-btn" class="experience-tab active px-6 py-3 text-sm font-medium bg-white dark:bg-dark-700 rounded-l-lg border border-gray-200 dark:border-dark-600 hover:bg-gray-100 dark:hover:bg-dark-600 focus:z-10 focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400">
+                            工作经历
+                        </button>
+                        <button type="button" id="education-btn" class="experience-tab px-6 py-3 text-sm font-medium bg-white dark:bg-dark-700 border-t border-b border-gray-200 dark:border-dark-600 hover:bg-gray-100 dark:hover:bg-dark-600 focus:z-10 focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400">
+                            教育经历
+                        </button>
+                        <button type="button" id="certification-btn" class="experience-tab px-6 py-3 text-sm font-medium bg-white dark:bg-dark-700 rounded-r-lg border border-gray-200 dark:border-dark-600 hover:bg-gray-100 dark:hover:bg-dark-600 focus:z-10 focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400">
+                            证书
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 工作经历内容 -->
+                <div id="work-content" class="experience-content">
+                    <div class="relative pl-8 md:pl-12 timeline-line">
+                        <!-- 工作经历1 -->
+                        <div class="mb-12 relative timeline-dot" data-aos="fade-up">
+                            <div class="bg-white dark:bg-dark-700 rounded-xl shadow-custom p-6 md:p-8">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                    <h3 class="text-xl font-bold">电机控制算法工程师</h3>
+                                    <span class="text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-3 py-1 rounded-full inline-block mt-2 md:mt-0">
+                                        2024年7月至今
+                                    </span>
+                                </div>
+                                <h4 class="text-lg font-semibold text-gray-600 dark:text-gray-300 mb-4">宇宙无限有限公司</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+                                    <li>负责公司灵巧手电机驱动架构设计和开发</li>
+                                    <li>使用ARM处理器，完成灵巧手指关节伺服控制</li>
+                                    <li>设计并实现电机库和modbus协议库，完成电机控制部分</li>
+                                    <li>与硬件和机械团队协作，最终搭建灵巧手部分</li>
+                                    <li>指导实习人员，参与代码审查，提升团队整体技术水平</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+                
+                <!-- 教育经历内容 -->
+                <div id="education-content" class="experience-content hidden">
+                    <div class="relative pl-8 md:pl-12 timeline-line">
+                        <!-- 教育经历1 -->
+                        <div class="mb-12 relative timeline-dot" data-aos="fade-up">
+                            <div class="bg-white dark:bg-dark-700 rounded-xl shadow-custom p-6 md:p-8">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                    <h3 class="text-xl font-bold">机械电子工程</h3>
+                                    <span class="text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-3 py-1 rounded-full inline-block mt-2 md:mt-0">
+                                        2021年 - 2024年
+                                    </span>
+                                </div>
+                                <h4 class="text-lg font-semibold text-gray-600 dark:text-gray-300 mb-4">四川大学</h4>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    主修课程：机械原理,机械设计,单片机等
+                                </p>
+
+                            </div>
+                        </div>
+                        
+                        <!-- 教育经历2 -->
+                        <div class="relative timeline-dot" data-aos="fade-up" data-aos-delay="200">
+                            <div class="bg-white dark:bg-dark-700 rounded-xl shadow-custom p-6 md:p-8">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                    <h3 class="text-xl font-bold">机械设计制造及其自动化</h3>
+                                    <span class="text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-3 py-1 rounded-full inline-block mt-2 md:mt-0">
+                                        2017年 - 2021年
+                                    </span>
+                                </div>
+                                <h4 class="text-lg font-semibold text-gray-600 dark:text-gray-300 mb-4">四川大学</h4>
+                                <p class="text-gray-700 dark:text-gray-300">
+                                    学习内容：C/C++，机械设计,机械制图
+                                    完成多个机械设计课程设计
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 证书内容 -->
+                <div id="certification-content" class="experience-content hidden">
+                    <div class="relative pl-8 md:pl-12 timeline-line">
+                        <!-- 证书1 -->
+                        <div class="mb-12 relative timeline-dot" data-aos="fade-up">
+                            <div class="bg-white dark:bg-dark-700 rounded-xl shadow-custom p-6 md:p-8">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                    <h3 class="text-xl font-bold">全国计算机等级考试三级</h3>
+                                    <span class="text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-3 py-1 rounded-full inline-block mt-2 md:mt-0">
+                                        2018年
+                                    </span>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300">
+                                    计算机网络
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 证书2 -->
+                        <div class="mb-12 relative timeline-dot" data-aos="fade-up" data-aos-delay="200">
+                            <div class="bg-white dark:bg-dark-700 rounded-xl shadow-custom p-6 md:p-8">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                    <h3 class="text-xl font-bold">计算机技术与软件专业技术资格</h3>
+                                    <span class="text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-3 py-1 rounded-full inline-block mt-2 md:mt-0">
+                                        2019年
+                                    </span>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300">
+                                         软件设计
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 证书3 -->
+                        <div class="relative timeline-dot" data-aos="fade-up" data-aos-delay="400">
+                            <div class="bg-white dark:bg-dark-700 rounded-xl shadow-custom p-6 md:p-8">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                    <h3 class="text-xl font-bold">全国大学生英语六级</h3>
+                                    <span class="text-sm font-semibold text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-3 py-1 rounded-full inline-block mt-2 md:mt-0">
+                                        2019年
+                                    </span>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300">
+                                    英语听说读写能力。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能展示 -->
+    <section id="skills" class="py-20 px-6 md:px-12">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">专业技能</h2>
+                <div class="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- 技能雷达图 -->
+                <div class="bg-white dark:bg-dark-700 rounded-2xl shadow-custom p-6 md:p-8" data-aos="fade-right">
+                    <h3 class="text-xl font-bold mb-6 text-center">技能雷达图</h3>
+                    <div class="w-full h-80">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- 技能技能条形图 -->
+                <div class="bg-white dark:bg-dark-700 rounded-2xl shadow-custom p-6 md:p-8" data-aos="fade-left">
+                    <h3 class="text-xl font-bold mb-6 text-center">技能熟练度</h3>
+                    <div class="space-y-6">
+                        <!-- 技能1 -->
+                        <div>
+                            <div class="flex justify-between justify-between justify-between mb-1">
+                                <span class="font-medium">电机控制算法</span>
+                                <span class="ml-auto">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-dark-500 rounded-full h-2.5">
+                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 技能2 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-medium">ARM处理器</span>
+                                <span class="ml-auto">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-dark-500 rounded-full h-2.5">
+                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 技能3 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-medium">C/C++</span>
+                                <span class="ml-auto">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-dark-500 rounded-full h-2.5">
+                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 技能4 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-medium">机械设计</span>
+                                <span class="ml-auto">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-dark-500 rounded-full h-2.5">
+                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 技能5 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-medium">硬件设计</span>
+                                <span class="ml-auto">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-dark-500 rounded-full h-2.5">
+                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 技能6 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-medium">HTML5</span>
+                                <span class="ml-auto">65%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-dark-500 rounded-full h-2.5">
+                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 技能分类标签 -->
+            <div class="mt-16 bg-white dark:bg-dark-700 rounded-2xl shadow-custom p-6 md:p-8" data-aos="fade-up">
+                <h3 class="text-xl font-bold mb-6 text-center">技能分类</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 前端技能 -->
+                    <div class="bg-gray-50 dark:bg-dark-800 rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-3">
+                                <i class="fa fa-code text-primary-600 dark:text-primary-400" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold">电机控制技术</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">FOC</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">C/C++</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">ARM</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">EtherCAT</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">弱磁控制</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">DOB 观测器</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">前馈控制</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">摩擦补偿</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">MODBUS RTU</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">IIC </span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">SPI</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">BISS-C </span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">SSI </span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">多摩川协议</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 后端技能 -->
+                    <div class="bg-gray-50 dark:bg-dark-800 rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-3">
+                                <i class="fa fa-server text-primary-600 dark:text-primary-400" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold">硬件技术</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">AD</ADdress></ADdress></span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">PCB LAYOUT</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">示波器</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">万用表</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">逻辑分析仪</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">电烙铁</span>
+                          
+                        </div>
+                    </div>
+                    
+                    <!-- 其他技能 -->
+                    <div class="bg-gray-50 dark:bg-dark-800 rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-3">
+                                <i class="fa fa-cogs text-primary-600 dark:text-primary-400" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold">其他技能</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">机械设计</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">3D打印</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">OFFICE</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">UG</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">SolidWorks</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">AutoCAD</span>
+                            <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm">PS</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示 -->
+    <section id="projects" class="py-20 px-6 md:px-12 bg-gray-100 dark:bg-dark-900">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">项目展示</h2>
+                <div class="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+            </div>
+            
+            <!-- 项目筛选 -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
+                <button class="project-filter active px-4 py-2 rounded-full bg-primary-600 text-white hover:bg-primary-700 transition-colors" data-filter="all">
+                    全部
+                </button>
+                <button class="project-filter px-4 py-2 rounded-full bg-white dark:bg-dark-700 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-dark-600 transition-colors" data-filter="motor">
+                    电机项目
+                </button>
+                <button class="project-filter px-4 py-2 rounded-full bg-white dark:bg-dark-700 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-dark-600 transition-colors" data-filter="embedded">
+                    嵌入式项目
+                </button>
+                <button class="project-filter px-4 py-2 rounded-full bg-white dark:bg-dark-700 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-dark-600 transition-colors" data-filter="design">
+                    机械设计项目
+                </button>
+            </div>
+            
+           
+        </div>
+    </section>
+
+    <!-- 联系我 -->
+    <section id="contact" class="py-20 px-6 md:px-12">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">联系我</h2>
+                <div class="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- 联系信息 -->
+                <div class="bg-white dark:bg-dark-700 rounded-2xl shadow-custom p-6 md:p-8" data-aos="fade-right">
+                    <h3 class="text-xl font-bold mb-6">联系方式</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- 邮箱 -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-envelope-o text-primary-600 dark:text-primary-400 text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-1">邮箱</h4>
+                                <a href="mailto:zhangming@example.com" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                                   12345@qq.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- 电话 -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-phone text-primary-600 dark:text-primary-400 text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-1">电话</h4>
+                                <a href="tel:+8613800138000" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                                    +86 199 8888 8888
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- 地址 -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-map-marker text-primary-600 dark:text-primary-400 text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-1">地址</h4>
+                                <p class="text-gray-700 dark:text-gray-300">
+                                    中国大陆
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 社交媒体 -->
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-share-alt text-primary-600 dark:text-primary-400 text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3">社交媒体</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-dark-800 flex items-center justify-center shadow-custom hover:shadow-custom-hover transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20">
+                                        <i class="fa fa-github text-gray-800 dark:text-gray-200" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-dark-800 flex items-center justify-center shadow-custom hover:shadow-custom-hover transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20">
+                                        <i class="fa fa-linkedin text-blue-600" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-dark-800 flex items-center justify-center shadow-custom hover:shadow-custom-hover transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20">
+                                        <i class="fa fa-twitter text-blue-400" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-dark-800 flex items-center justify-center shadow-custom hover:shadow-custom-hover transition-all hover:bg-primary-50 dark:hover:bg-primary-900/20">
+                                        <i class="fa fa-codepen text-gray-800 dark:text-gray-200" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 联系表单 -->
+                <div class="bg-white dark:bg-dark-700 rounded-2xl shadow-custom p-6 md:p-8" data-aos="fade-left">
+                    <h3 class="text-xl font-bold mb-6">发送消息</h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- 姓名 -->
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    姓名
+                                </label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 dark:border-dark-500 rounded-lg focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400 focus:border-primary-600 dark:focus:border-primary-400 bg-white dark:bg-dark-800 text-gray-800 dark:text-gray-200" placeholder="请输入您的姓名" required>
+                            </div>
+                            
+                            <!-- 邮箱 -->
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    邮箱
+                                </label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 dark:border-dark-500 rounded-lg focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400 focus:border-primary-600 dark:focus:border-primary-400 bg-white dark:bg-dark-800 text-gray-800 dark:text-gray-200" placeholder="请输入您的邮箱" required>
+                            </div>
+                        </div>
+                        
+                        <!-- 主题 -->
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                主题
+                            </label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-dark-500 rounded-lg focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400 focus:border-primary-600 dark:focus:border-primary-400 bg-white dark:bg-dark-800 text-gray-800 dark:text-gray-200" placeholder="请输入消息主题" required>
+                        </div>
+                        
+                        <!-- 消息 -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                消息
+                            </label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-dark-500 rounded-lg focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400 focus:border-primary-600 dark:focus:border-primary-400 bg-white dark:bg-dark-800 text-gray-800 dark:text-gray-200" placeholder="请输入您的消息内容" required></textarea>
+                        </div>
+                        
+                        <!-- 提交按钮 -->
+                        <div>
+                            <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg flex items-center justify-center">
+                                <span>发送消息</span>
+                                <i class="fa fa-paper-plane ml-2" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12 px-6 md:px-12">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-2">王志成 <span class="text-primary-400">/ Wang Zhicheng</span></h2>
+                    <p class="text-gray-400">电机控制开发工程师</p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors">关于我</a>
+                    <a href="#experience" class="text-gray-400 hover:text-white transition-colors">经历</a>
+                    <a href="#skills" class="text-gray-400 hover:text-white transition-colors">技能</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition-colors">项目</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我</a>
+                </div>
+            </div>
+            
+            <hr class="border-gray-800 my-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 王志成. 保留所有权利.
+                </p>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-codepen" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary-600 text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all z-50 hover:bg-primary-700">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 初始化AOS动画库
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // 初始化技能雷达图
+            initSkillsChart();
+            
+            // 初始化深色/浅色模式
+            initThemeToggle();
+            
+            // 初始化导航栏
+            initNavbar();
+            
+            // 初始化经历选项卡
+            initExperienceTabs();
+            
+            // 初始化项目筛选
+            initProjectFilter();
+            
+            // 初始化联系表单
+            initContactForm();
+            
+            // 初始化返回顶部按钮
+            initBackToTop();
+        });
+        
+        // 初始化技能雷达图
+        function initSkillsChart() {
+            const ctx = document.getElementById('skillsRadarChart').getContext('2d');
+            
+            // 检查是否支持Canvas
+            if (!ctx) return;
+            
+            // 获取当前主题
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            
+            // 设置图表颜色
+            const textColor = isDarkMode ? '#e5e7eb' : '#374151';
+            const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+            
+            // 创建雷达图
+            const skillsChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['电机控制算法', 'ARM处理器', 'C/C++', '机械设计', '硬件设计', 'HTML5 '],
+                    datasets: [{
+                        label: '技能熟练度',
+                        data: [95, 90, 85, 80, 75, 70],
+                        backgroundColor: 'rgba(51, 120, 255, 0.2)',
+                        borderColor: 'rgba(51, 120, 255, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(51, 120, 255, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(51, 120, 255, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: gridColor
+                            },
+                            grid: {
+                                color: gridColor
+                            },
+                            pointLabels: {
+                                color: textColor,
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            ticks: {
+                                backdropColor: 'transparent',
+                                color: textColor
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: textColor
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // 监听主题变化，更新图表颜色
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.attributeName === 'class') {
+                        const isDarkMode = document.documentElement.classList.contains('dark');
+                        const textColor = isDarkMode ? '#e5e7eb' : '#374151';
+                        const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+                        
+                        // 更新图表颜色
+                        skillsChart.options.scales.r.angleLines.color = gridColor;
+                        skillsChart.options.scales.r.grid.color = gridColor;
+                        skillsChart.options.scales.r.pointLabels.color = textColor;
+                        skillsChart.options.scales.r.ticks.color = textColor;
+                        skillsChart.options.plugins.legend.labels.color = textColor;
+                        
+                        skillsChart.update();
+                    }
+                });
+            });
+            
+            observer.observe(document.documentElement, { attributes: true });
+        }
+        
+        // 初始化深色/浅色模式
+        function initThemeToggle() {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            
+            // 检查本地存储中的主题偏好
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            
+            // 切换主题
+            themeToggleBtn.addEventListener('click', function() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            });
+        }
+        
+        // 初始化导航栏
+        function initNavbar() {
+            const navbar = document.getElementById('navbar');
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('#nav-links a, #mobile-menu a');
+            
+            // 移动端菜单切换
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // 导航链接点击事件
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // 关闭移动端菜单
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // 滚动时导航栏样式变化
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-fixed');
+                } else {
+                    navbar.classList.remove('navbar-fixed');
+                }
+            });
+        }
+        
+        // 初始化经历选项卡
+        function initExperienceTabs() {
+            const tabs = document.querySelectorAll('.experience-tab');
+            const contents = document.querySelectorAll('.experience-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 移除所有选项卡的活动状态
+                    tabs.forEach(t => {
+                        t.classList.remove('active', 'bg-primary-600', 'text-white');
+                        t.classList.add('bg-white', 'dark:bg-dark-700', 'text-gray-800', 'dark:text-gray-200');
+                    });
+                    
+                    // 添加当前选项卡的活动状态
+                    this.classList.add('active', 'bg-primary-600', 'text-white');
+                    this.classList.remove('bg-white', 'dark:bg-dark-700', 'text-gray-800', 'dark:text-gray-200');
+                    
+                    // 隐藏所有内容
+                    contents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // 显示对应内容
+                    const contentId = this.id.replace('-btn', '-content');
+                    document.getElementById(contentId).classList.remove('hidden');
+                });
+            });
+        }
+        
+        // 初始化项目筛选
+        function initProjectFilter() {
+            const filters = document.querySelectorAll('.project-filter');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // 移除所有筛选按钮的活动状态
+                    filters.forEach(f => {
+                        f.classList.remove('active', 'bg-primary-600', 'text-white');
+                        f.classList.add('bg-white', 'dark:bg-dark-700', 'text-gray-800', 'dark:text-gray-200');
+                    });
+                    
+                    // 添加当前筛选按钮的活动状态
+                    this.classList.add('active', 'bg-primary-600', 'text-white');
+                    this.classList.remove('bg-white', 'dark:bg-dark-700', 'text-gray-800', 'dark:text-gray-200');
+                    
+                    // 获取筛选值
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // 筛选项目卡片
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.classList.contains(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+        
+        // 初始化联系表单
+        function initContactForm() {
+            const contactForm = document.getElementById('contact-form');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 获取表单数据
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // 模拟表单提交
+                alert(`感谢您的留言，${name}！\n我们已收到您的消息，将尽快回复您。`);
+                
+                // 重置表单
+                contactForm.reset();
+            });
+        }
+        
+        // 初始化返回顶部按钮
+        function initBackToTop() {
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            // 滚动时显示/隐藏按钮
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'invisible');
+                    backToTopBtn.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'invisible');
+                    backToTopBtn.classList.remove('opacity-100', 'visible');
+                }
+            });
+            
+            // 点击返回顶部
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+</body>
+</html>
